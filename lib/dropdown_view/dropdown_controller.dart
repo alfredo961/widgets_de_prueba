@@ -11,7 +11,14 @@ class DropdownController extends GetxController {
 
   //===========DROPDOWN FRUTAS=========================
   RxString fruitSelected = "Apple".obs;
-  List<String> fruits = ['Apple', 'Banana', 'Grapes', 'Orange', 'Watermelon', 'Pineapple'];
+  List<String> fruits = [
+    'Apple',
+    'Banana',
+    'Grapes',
+    'Orange',
+    'Watermelon',
+    'Pineapple'
+  ];
 
   selectFruit(String newValue) {
     fruitSelected.value = newValue;
@@ -37,14 +44,11 @@ class DropdownController extends GetxController {
 
     carros.map((e) {
       auto.value = "${e.idCarro}${e.nombre}";
-      print('=======================');
-      print(auto.replaceAll(RegExp('[a-zA-Z]'), '') + ', ' + auto.replaceAll(RegExp(r'[0-9]'), ''));
       newCarrosList.add(auto.value);
       return auto;
     }).toList();
 
     carrosList = newCarrosList;
-    print(carrosList);
   }
 
   selectCarro(String newValue) {
@@ -53,8 +57,8 @@ class DropdownController extends GetxController {
 }
 
 class Carros {
-  int idCarro;
-  String nombre;
+  int? idCarro;
+  String? nombre;
 
   Carros({@required this.idCarro, @required this.nombre});
 

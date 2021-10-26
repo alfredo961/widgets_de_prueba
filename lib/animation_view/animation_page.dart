@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:tabbar/animation_view/animation_controller.dart';
 
 class AnimationPage extends StatefulWidget {
+  const AnimationPage({Key? key}) : super(key: key);
   @override
   _AnimationPageState createState() => _AnimationPageState();
 }
@@ -13,16 +14,16 @@ class _AnimationPageState extends State<AnimationPage> {
     return Scaffold(
         appBar: AppBar(),
         body: Container(
-          margin: EdgeInsets.symmetric(horizontal: 40),
+          margin: const EdgeInsets.symmetric(horizontal: 40),
         ),
-        floatingActionButton: FloatingBounce());
+        floatingActionButton: const FloatingBounce());
   }
 }
 
 const _movement = 25.0;
 
 class FloatingBounce extends StatefulWidget {
-  const FloatingBounce({Key key}) : super(key: key);
+  const FloatingBounce({Key? key}) : super(key: key);
 
   @override
   _FloatingBounceState createState() => _FloatingBounceState();
@@ -31,9 +32,9 @@ class FloatingBounce extends StatefulWidget {
 class _FloatingBounceState extends State<FloatingBounce>
     with SingleTickerProviderStateMixin {
   final AnimacionController acontroller = Get.put(AnimacionController());
-  AnimationController _controller;
-  Animation _animationIn;
-  Animation _animationOut;
+  late AnimationController? _controller;
+  late Animation? _animationIn;
+  late Animation? _animationOut;
 
   @override
   void initState() {
@@ -46,34 +47,34 @@ class _FloatingBounceState extends State<FloatingBounce>
     );
 
     _animationIn = CurveTween(
-      curve: Interval(
+      curve: const Interval(
         0.1,
         0.5,
         curve: Curves.decelerate,
       ),
-    ).animate(_controller);
+    ).animate(_controller!);
 
     _animationOut = CurveTween(
-      curve: Interval(
+      curve: const Interval(
         0.5,
         1.0,
         curve: Curves.bounceOut,
       ),
-    ).animate(_controller);
+    ).animate(_controller!);
 
     setState(() {
-      _controller.forward(from: 0.0);
-      TickerFuture tickerFuture = _controller.repeat();
-      tickerFuture.timeout(Duration(seconds: 4), onTimeout: () {
-        _controller.forward(from: 0);
-        _controller.stop(canceled: true);
+      _controller!.forward(from: 0.0);
+      final TickerFuture tickerFuture = _controller!.repeat();
+      tickerFuture.timeout(const Duration(seconds: 4), onTimeout: () {
+        _controller!.forward(from: 0);
+        _controller!.stop();
       });
     });
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     super.dispose();
   }
 
@@ -82,23 +83,23 @@ class _FloatingBounceState extends State<FloatingBounce>
     double currentElevation = 0.0;
 
     return AnimatedBuilder(
-        animation: _controller,
+        animation: _controller!,
         builder: (context, _) {
-          currentElevation =
-              -_movement * _animationIn.value + _movement * _animationOut.value;
+          currentElevation = -_movement * _animationIn!.value +
+              _movement * _animationOut!.value;
           return GestureDetector(
             onTap: () {
               setState(() {
-                _controller.forward(from: 0.0);
+                _controller!.forward(from: 0.0);
               });
             },
             child: Transform.translate(
               offset: Offset(0.0, currentElevation),
-              child: CircleAvatar(
+              child: const CircleAvatar(
                 radius: 30,
                 backgroundColor: Colors.blueAccent,
-                child: Icon(Icons.star),
                 foregroundColor: Colors.white,
+                child: Icon(Icons.star),
               ),
             ),
           );

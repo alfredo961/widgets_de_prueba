@@ -5,14 +5,16 @@ import 'package:tabbar/dropdown_view/dropdown_page.dart';
 import 'package:tabbar/form_view/form_page.dart';
 import 'package:tabbar/home_page.dart';
 import 'package:tabbar/map_view/map_view.dart';
+import 'package:tabbar/ocr_view/ocr_view.dart';
 import 'package:tabbar/stepper_views/stepper_page.dart';
 import 'package:tabbar/tabs_view/tab_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -27,9 +29,10 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/tabs', page: () => TabBarPage()),
         GetPage(name: '/steps', page: () => StepperPage()),
         GetPage(name: '/form', page: () => FormPage()),
-        GetPage(name: '/map', page: () => MapWidgetView()),
+        GetPage(name: '/map', page: () => const MapWidgetView()),
         GetPage(name: '/dropdown', page: () => DropdownPage()),
-        GetPage(name: '/animation', page: () => AnimationPage()),
+        GetPage(name: '/animation', page: () => const AnimationPage()),
+        GetPage(name: '/ocr', page: () => OCRView()),
       ],
     );
   }

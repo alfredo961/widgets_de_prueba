@@ -1,27 +1,31 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  passToTabs() {
-    Get.toNamed("/tabs");
+  Future? passToTabs() {
+    return Get.toNamed("/tabs");
   }
 
-  passToStepper() {
-    Get.toNamed("/steps");
+  Future? passToStepper() {
+    return Get.toNamed("/steps");
   }
 
-  passToForm() {
-    Get.toNamed("/form");
+  Future? passToForm() {
+    return Get.toNamed("/form");
   }
 
-  passToMapView() {
-    Get.toNamed("/map");
+  Future? passToMapView() {
+    return Get.toNamed("/map");
   }
 
-  passToDropdownView() {
-    Get.toNamed("/dropdown");
+  Future? passToDropdownView() {
+    return Get.toNamed("/dropdown");
   }
 
-  passToAnimationView() {
-    Get.toNamed("/animation");
+  Future? passToAnimationView() {
+    return Get.toNamed("/animation");
+  }
+
+  Future? passToOCRView() {
+    return Get.toNamed("/ocr");
   }
 }

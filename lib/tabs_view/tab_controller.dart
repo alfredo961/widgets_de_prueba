@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TabBarController extends GetxController with SingleGetTickerProviderMixin {
-
-  TabController tabController;
+class TabBarController extends GetxController
+    with SingleGetTickerProviderMixin {
+  TabController? tabController;
 
   @override
   void onInit() {
@@ -15,7 +14,6 @@ class TabBarController extends GetxController with SingleGetTickerProviderMixin 
   @override
   void dispose() {
     super.dispose();
-    tabController.dispose();
+    tabController!.dispose();
   }
-
 }
