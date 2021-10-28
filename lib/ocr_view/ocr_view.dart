@@ -23,13 +23,13 @@ class OCRView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                (controller.scanResult!.value.isNotEmpty)
-                    ? controller.scanResult!.value
-                    : "Presione el botón",
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              Obx(() => Text(
+                    (controller.scanResult!.value.isNotEmpty)
+                        ? controller.scanResult!.value
+                        : "Presione el botón",
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  )),
               Center(
                 child: ElevatedButton(
                   onPressed: () => controller.scanStart(),

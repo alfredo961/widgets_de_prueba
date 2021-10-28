@@ -78,7 +78,7 @@ class HomePage extends StatelessWidget {
                 child: FloatingActionButton.extended(
                     heroTag: "btn7",
                     label: const Text("OCR"),
-                    icon: const Icon(Icons.document_scanner_outlined),
+                    icon: const Icon(Icons.scanner_outlined),
                     onPressed: () => controller.passToOCRView()),
               ),
             ],

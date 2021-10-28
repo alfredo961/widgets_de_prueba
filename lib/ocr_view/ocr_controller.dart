@@ -9,6 +9,11 @@ class OCRController extends GetxController {
   Size? _previewOcr;
   final int? _cameraOcr = FlutterMobileVision.CAMERA_BACK;
   RegExp regExp = RegExp(r'\s+(\d{8}-\d{1})\s+', multiLine: true);
+  static const text = '''
+hero Unito de ldentidar
+u lDNmt
+02377308-8
+''';
 
   @override
   void onInit() {
@@ -41,14 +46,16 @@ class OCRController extends GetxController {
       );
 
       for (OcrText text in list) {
-        tempText = text.value;
+        tempText += text.value.trim() + "\n";
       }
       //tempText = list[0].value;
       //scanResult!.value = regExp.allMatches(tempText).toString();
+      scanResult!.value =
+          regExp.allMatches(tempText).map((m) => m.group(0)).toString();
       log(tempText);
-      var result = regExp.allMatches(tempText).map((m) => m.group(0));
+      //var result = regExp.allMatches(tempText).map((m) => m.group(0));
       print("=*=*=*=*=*=*=*=*=");
-      print(result);
+      print(scanResult!.value);
       print("=*=*=*=*=*=*=*=*=");
     } catch (e) {
       print(e);
