@@ -1,8 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobile_vision_2/flutter_mobile_vision_2.dart';
 import 'package:get/get.dart';
 import 'package:tabbar/ocr_view/ocr_controller.dart';
 
+class OCRView extends StatelessWidget {
+  OCRView({Key? key}) : super(key: key);
+  final controller = Get.put(OCRController());
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: const Text('OCR In Flutter'),
+          centerTitle: true,
+        ),
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: double.infinity,
+          color: Colors.white,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                (controller.scanResult!.value.isNotEmpty)
+                    ? controller.scanResult!.value
+                    : "Presione el botón",
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () => controller.scanStart(),
+                  child: const Text(
+                    'Read',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+/*
 class OCRView extends StatefulWidget {
   const OCRView({Key? key}) : super(key: key);
 
@@ -176,7 +222,7 @@ class _OCRViewState extends State<OCRView> {
           bottom: 12.0,
         ),
         child: ElevatedButton(
-          onPressed: _read,
+          onPressed: controller.scanStart,
           child: const Text('READ!'),
         ),
       ),
@@ -206,13 +252,15 @@ class _OCRViewState extends State<OCRView> {
 class OcrTextWidget extends StatelessWidget {
   final OcrText ocrText;
 
-  const OcrTextWidget(this.ocrText, {Key? key}) : super(key: key);
+  OcrTextWidget(this.ocrText, {Key? key}) : super(key: key);
+  final controller = Get.put(OCRController());
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(ocrText.value),
+      title: Obx(() => Text(ocrText.value)),
       subtitle: Text(ocrText.language),
     );
   }
 }
+*/
