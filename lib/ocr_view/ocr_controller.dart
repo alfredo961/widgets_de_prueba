@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/widgets.dart';
 import 'package:flutter_mobile_vision_2/flutter_mobile_vision_2.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +25,7 @@ u lDNmt
         return;
       }
       _previewOcr = previewSizes[_cameraOcr]!.last;
-      print(_previewOcr);
+      debugPrint(_previewOcr.toString());
     });
   }
 
@@ -54,11 +55,8 @@ u lDNmt
           regExp.allMatches(tempText).map((m) => m.group(0)).toString();
       log(tempText);
       //var result = regExp.allMatches(tempText).map((m) => m.group(0));
-      print("=*=*=*=*=*=*=*=*=");
-      print(scanResult!.value);
-      print("=*=*=*=*=*=*=*=*=");
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 }

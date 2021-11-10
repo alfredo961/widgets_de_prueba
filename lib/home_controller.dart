@@ -28,4 +28,8 @@ class HomeController extends GetxController {
   Future? passToOCRView() {
     return Get.toNamed("/ocr");
   }
+
+  Future? passToNotificationView() {
+    return Get.toNamed("/notificacion");
+  }
 }
