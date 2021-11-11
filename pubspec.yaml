@@ -39,6 +39,7 @@ dependencies:
   flutter_tesseract_ocr: ^0.4.18
   flutter_local_notifications: ^9.0.1
   rxdart: ^0.27.2
+  device_info: ^2.0.3
   
 
 dev_dependencies:

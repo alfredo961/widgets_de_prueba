@@ -32,4 +32,8 @@ class HomeController extends GetxController {
   Future? passToNotificationView() {
     return Get.toNamed("/notificacion");
   }
+
+  Future? passToDeviceInfoView() {
+    return Get.toNamed("/deviceInfo");
+  }
 }

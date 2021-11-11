@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:tabbar/animation_view/animation_page.dart';
+import 'package:tabbar/device_info_view/device_info_provider.dart';
+import 'package:tabbar/device_info_view/device_info_view.dart';
 import 'package:tabbar/dropdown_view/dropdown_page.dart';
 import 'package:tabbar/form_view/form_page.dart';
 import 'package:tabbar/home_page.dart';
@@ -41,6 +43,12 @@ class MyApp extends StatelessWidget {
             page: () => ChangeNotifierProvider<NotificacionesProvider>(
                   create: (_) => NotificacionesProvider(),
                   child: const NotificacionesView(),
+                )),
+        GetPage(
+            name: '/deviceInfo',
+            page: () => ChangeNotifierProvider<DeviceInfoProvider>(
+                  create: (_) => DeviceInfoProvider(),
+                  child: const DeviceInfoView(),
                 )),
       ],
     );
