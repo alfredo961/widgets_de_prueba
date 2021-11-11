@@ -81,6 +81,16 @@ class HomePage extends StatelessWidget {
                     icon: const Icon(Icons.scanner_outlined),
                     onPressed: () => controller.passToOCRView()),
               ),
+              const SizedBox(
+                height: 20,
+              ),
+              Flexible(
+                child: FloatingActionButton.extended(
+                    heroTag: "btn8",
+                    label: const Text("Notifications"),
+                    icon: const Icon(Icons.notifications_outlined),
+                    onPressed: () => controller.passToNotificationView()),
+              ),
             ],
           )),
     );

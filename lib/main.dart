@@ -6,9 +6,8 @@ import 'package:tabbar/dropdown_view/dropdown_page.dart';
 import 'package:tabbar/form_view/form_page.dart';
 import 'package:tabbar/home_page.dart';
 import 'package:tabbar/map_view/map_view.dart';
-import 'package:tabbar/ocr_view/ocr2_controller.dart';
-import 'package:tabbar/ocr_view/ocr2_view.dart';
-import 'package:tabbar/ocr_view/ocr3_view.dart';
+import 'package:tabbar/notificaciones_view/notificaciones_provider.dart';
+import 'package:tabbar/notificaciones_view/notificaciones_view.dart';
 import 'package:tabbar/ocr_view/ocr_view.dart';
 import 'package:tabbar/stepper_views/stepper_page.dart';
 import 'package:tabbar/tabs_view/tab_page.dart';
@@ -37,12 +36,12 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/dropdown', page: () => DropdownPage()),
         GetPage(name: '/animation', page: () => const AnimationPage()),
         GetPage(name: '/ocr', page: () => OCRView()),
-        // GetPage(
-        //     name: '/ocr',
-        //     page: () => ChangeNotifierProvider<TextRecognitionState>(
-        //         create: (_) => TextRecognitionState(),
-        //         child: const TextRecognitionPage())),
-        //GetPage(name: '/ocr', page: () => OCR3View()),
+        GetPage(
+            name: '/notificacion',
+            page: () => ChangeNotifierProvider<NotificacionesProvider>(
+                  create: (_) => NotificacionesProvider(),
+                  child: const NotificacionesView(),
+                )),
       ],
     );
   }
