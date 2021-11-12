@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart' show ChangeNotifier, debugPrint;
 import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:tabbar/notificaciones_view/api/notification_api.dart';
 
 enum ServerStatus { online, offline, connecting }
 
@@ -62,10 +63,13 @@ class SocketProvider extends ChangeNotifier {
       _asunto =
           payload.containsKey('asunto') ? payload["asunto"] : "Sin asunto";
       _id = payload.containsKey('id') ? payload["id"] : 0;
+      NotificationApi.showNotification(
+          title: _nombre, body: _asunto, payload: _id.toString());
 
       debugPrint(nombre);
       debugPrint(asunto);
       debugPrint(id.toString());
+      notifyListeners();
     });
   }
 }
