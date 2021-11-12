@@ -36,4 +36,8 @@ class HomeController extends GetxController {
   Future? passToDeviceInfoView() {
     return Get.toNamed("/deviceInfo");
   }
+
+  Future? passToSocketView() {
+    return Get.toNamed("/status");
+  }
 }

@@ -6,6 +6,9 @@ import 'package:tabbar/notificaciones_view/api/notification_api.dart';
 class NotificacionesProvider extends ChangeNotifier {
   String? selectedNotificationPayload;
   void Function(String?)? onCLickedNotification;
+  String? nombre = "";
+  String? asunto = "";
+  String? payload = "";
 
   NotificacionesProvider() {
     initState();

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:tabbar/notificaciones_view/api/notification_api.dart';
 import 'package:tabbar/notificaciones_view/notificaciones_provider.dart';
 import 'package:tabbar/notificaciones_view/widgets/second_page.dart';
+import 'package:tabbar/socket_view/socket_provider.dart';
 
 class NotificacionesView extends StatefulWidget {
   const NotificacionesView({Key? key}) : super(key: key);
@@ -34,6 +35,8 @@ class _NotificacionesViewState extends State<NotificacionesView> {
     final NotificacionesProvider controller =
         Provider.of(context, listen: false);
 
+    final socketService = context.watch<SocketProvider>();
+
     Widget space = const SizedBox(height: 24);
     return Scaffold(
       appBar: AppBar(),
@@ -47,11 +50,12 @@ class _NotificacionesViewState extends State<NotificacionesView> {
             _buidButton(
                 label: "Simple notification",
                 icon: Icons.notifications,
-                onPressed: () => NotificationApi.showNotification(
-                    title: 'Sarah Abs',
-                    body:
-                        'Hey! Do we have everything we need for the lunch today?',
-                    payload: "sarah.abs")),
+                onPressed: () {
+                  NotificationApi.showNotification(
+                      title: socketService.nombre,
+                      body: socketService.asunto,
+                      payload: socketService.id.toString());
+                }),
             space,
             _buidButton(
                 label: "Scheduled notification",
