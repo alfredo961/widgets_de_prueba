@@ -30,13 +30,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.1.4
   google_maps_flutter: ^2.0.6
-  flutter_mobile_vision_2: ^0.1.11
   camera: ^0.8.1+7
-  learning_text_recognition: ^0.0.2
-  learning_input_image: ^0.0.5
   provider: ^6.0.1
-  image_picker: ^0.7.5+4
-  flutter_tesseract_ocr: ^0.4.18
+  image_picker: ^0.8.4+4
   flutter_local_notifications: ^9.0.1
   rxdart: ^0.27.2
   device_info: ^2.0.3

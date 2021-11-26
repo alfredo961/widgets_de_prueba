@@ -1,16 +1,16 @@
 import 'dart:developer';
 import 'package:flutter/material.dart' show ChangeNotifier, debugPrint;
-import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:socket_io_client/socket_io_client.dart' as scket;
 import 'package:tabbar/notificaciones_view/api/notification_api.dart';
 
 enum ServerStatus { online, offline, connecting }
 
 class SocketProvider extends ChangeNotifier {
   ServerStatus _serverStatus = ServerStatus.connecting;
-  IO.Socket? _socket;
+  scket.Socket? _socket;
 
   ServerStatus get serverStatus => _serverStatus;
-  IO.Socket get socket => _socket!;
+  scket.Socket get socket => _socket!;
   Function get emit => _socket!.emit;
 
   String? _nombre;
@@ -31,7 +31,7 @@ class SocketProvider extends ChangeNotifier {
   }
 
   void initSocket() {
-    _socket = IO.io('http://10.0.2.2:3000/', {
+    _socket = scket.io('http://10.0.2.2:3000/', {
       "transports": ["websocket"],
       "autoConnect": true
     });

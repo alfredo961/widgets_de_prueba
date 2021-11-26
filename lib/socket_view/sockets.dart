@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/widgets.dart';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:socket_io_client/socket_io_client.dart' as scket;
 
 class Sockets {
   final socket =
-      IO.io('http://f9c4-190-86-109-255.ngrok.io/', <String, dynamic>{
+      scket.io('http://f9c4-190-86-109-255.ngrok.io/', <String, dynamic>{
     'transports': ['websocket'],
   });
 
@@ -25,7 +25,7 @@ class Sockets {
     });
 
     socket.on("Notificación", (message) {
-      print(message);
+      debugPrint(message);
     });
   }
 
@@ -34,7 +34,7 @@ class Sockets {
       readLine().listen((String line) => socket.emit("stream", line));
       socket.on("msg", (data) {
         _printFromServer(data);
-        print(data);
+        debugPrint(data);
       });
     }
   }

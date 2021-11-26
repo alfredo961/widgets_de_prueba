@@ -100,6 +100,12 @@ class HomePage extends StatelessWidget {
                     Icons.signal_wifi_connected_no_internet_4_outlined),
                 onPressed: () => controller.passToSocketView()),
             espacio,
+            FloatingActionButton.extended(
+                heroTag: "btn11",
+                label: const Text("Tiempo de validez"),
+                icon: const Icon(Icons.timelapse),
+                onPressed: () => controller.passToTiempoValidezView()),
+            espacio,
           ],
         ),
       ),

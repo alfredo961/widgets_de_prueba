@@ -1,9 +1,10 @@
 import UIKit
 import Flutter
 import GoogleMaps
+import UserNotifications
 
 @UIApplicationMain
-@objc class AppDelegate: FlutterAppDelegate {
+@objc class AppDelegate: FlutterAppDelegate, UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
   override func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions:

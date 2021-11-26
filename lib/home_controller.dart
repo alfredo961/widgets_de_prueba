@@ -40,4 +40,8 @@ class HomeController extends GetxController {
   Future? passToSocketView() {
     return Get.toNamed("/status");
   }
+
+  Future? passToTiempoValidezView() {
+    return Get.toNamed("/tiempo_validez");
+  }
 }
