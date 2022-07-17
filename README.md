@@ -1,16 +1,29 @@
-# tabbar
+# Compilation App
 
-A new Flutter application.
+## Comenzando
+Este proyecto es una aplicación desarrollada en Flutter.
 
-## Getting Started
+La cual contiene una recopilación de widgets y funcionalidades con el fin de facilitar 
+ejemplos de como usar los widgets o funcionalidadesen el desarrollo de cualquier app.
 
-This project is a starting point for a Flutter application.
+##Widgets e implementaciones
+La implementacion de los widgets o funcionalidades desarrolladas hasta el momento son:
 
-A few resources to get you started if this is your first Flutter project:
+- TabBar
+- Stepper
+- Form
+- Mapas
+- Dropdown
+- Bounce Animation
+- OCR
+- Notificaciones locales
+- Obtener información del dispositivo
+- Implementación de Socket
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+##Manejo de Estados
+Para la gestion de estados de este proyecto, se está utilizando:
+- StatefulWidget
+- Provider
+- Getx
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
